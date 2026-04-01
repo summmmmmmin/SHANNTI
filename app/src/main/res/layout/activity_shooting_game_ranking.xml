@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="846dp"
+    android:layout_height="411dp"
+    tools:context=".MainActivity"
+    app:srcCompat="@drawable/shooting_ranking_background"
+    android:screenOrientation="landscape">
+
+    <RelativeLayout
+        android:id="@+id/android_calendar"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/shooting_ranking_background"
+        android:clipToOutline="true"
+        tools:ignore="MissingConstraints,RedundantNamespace,UnusedAttribute"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+
+        <ListView
+            android:id="@+id/listViewRanking"
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="180dp"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+
+        <Switch
+            android:id="@+id/rank_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="570dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/bmhannapro"
+            android:textSize="18dp"
+            android:text="" />
+        <View
+            android:id="@+id/overlay_home_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="780dp"
+            android:layout_marginTop="6dp"
+            android:background="@android:color/transparent" />
+
+</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
