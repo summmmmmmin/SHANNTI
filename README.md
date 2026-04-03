@@ -88,11 +88,10 @@
 | **언어** | Java · Kotlin · C++ | JNI 네이티브 연동 |
 | **카메라** | CameraX API | 실시간 프레임 캡처 |
 | **포즈 추적** | Google MediaPipe | GPU 가속 파이프라인 |
-| **ML 추론** | TensorFlow Lite 2.7.0 | 자세 유사도 분류 보조 |
-| **얼굴 감지** | Google ML Kit | 미니게임 조작 입력 |
+| **얼굴 감지** | Google ML Kit | 얼굴 인식 로그인 / 미니게임 조작 입력 |
 | **이미지 처리** | OpenCV (Native JNI) | C++ 네이티브 연동 |
 | **인증** | Firebase Authentication | 이메일 / 비밀번호 |
-| **클라우드 DB** | Firebase Realtime Database | 점수 · 랭킹 실시간 동기화 |
+| **클라우드 DB** | Firebase Realtime Database | 사용자 정보 / 점수 · 랭킹 실시간 동기화 |
 | **로컬 DB** | Room Database | 운동 세션 기록 |
 | **차트** | MPAndroidChart v3.1.0 | 운동 통계 시각화 |
 | **음성** | Android TTS | 한국어 실시간 피드백 |
@@ -104,7 +103,7 @@
 
 ### 3.1 시스템 구조
 
-- 사용자 정보와 얼굴 정보는 **MediaPipe Face Detection**을 활용해 **Firebase**에 저장·관리한다.  
+- 사용자 정보와 얼굴 정보는 **ML Kit**을 활용해 **Firebase**에 저장·관리한다.  
 - 로그인 후 **MediaPipe Pose Detection**으로 자세 분석·운동을 수행한다.  
 - 게임 실행 시 **가속도·자이로 센서**가 장착된 아두이노 에어마우스를 **블루투스**로 연결한다.  
 - 운동·게임 종료 후 **운동 시간·소모 칼로리** 등이 Firebase에 저장되어 기록에서 확인한다.
