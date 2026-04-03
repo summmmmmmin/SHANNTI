@@ -1,11 +1,10 @@
 <div align="center">
+
 <img width="262" height="74" alt="shanntilogo" src="https://github.com/user-attachments/assets/d4a06c2d-c7f8-4012-9cab-6f8c524ff3c4" />
 
-
-
-
 **한국정보통신학회논문지(JKIICE)**  
-*「영상 분석 기반 운동 자세 교정 및 유산소 게임 애플리케이션」
+*「영상 분석 기반 운동 자세 교정 및 유산소 게임 애플리케이션」*
+
 <br>
 
 [![Android](https://img.shields.io/badge/Platform-Android_API_26+-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com)
@@ -26,17 +25,13 @@
 | 🧩 핵심 구성 | 👤 얼굴 인식 로그인 · 🦴 MediaPipe 자세 분석 · 🎮 아두이노 에어마우스 게임 · ☁️ Firebase 기록 |
 | 📌 운동 종류 | 스쿼트 · 플랭크 · 런지 · 밸런스 |
 
-</div>
-
 ---
 
-
-## Ⅰ. 왜 만들었나 
+## Ⅰ. 왜 만들었나
 
 헬스장에서 혼자 운동할 때 자세가 올바른지 실시간으로 확인할 방법이 없다. PT 트레이너는 비용이 크고, 운동 후 녹화 영상을 돌려보는 방식은 교정 타이밍을 놓친다. **카메라 하나로 운동하는 동안 즉각 피드백**을 주는 앱이 필요하다고 판단했다.
 
 ---
-
 
 ## Ⅱ. 주요 기능 및 기술 스택
 
@@ -122,12 +117,12 @@
 - 로그인 후 **MediaPipe Pose Detection**으로 자세 분석·운동을 수행한다.  
 - 게임 실행 시 **가속도·자이로 센서**가 장착된 아두이노 에어마우스를 **블루투스**로 연결한다.  
 - 운동·게임 종료 후 **운동 시간·소모 칼로리** 등이 Firebase에 저장되어 기록에서 확인한다.
-- 
-<img width="268" height="153" alt="image (1)" src="https://github.com/user-attachments/assets/90dfbd22-d955-4367-b087-15c2c868ded3" />
 
+<div align="center">
+<img width="268" height="153" alt="image (1)" src="https://github.com/user-attachments/assets/90dfbd22-d955-4367-b087-15c2c868ded3" />
+</div>
 
 ---
-
 
 ### 3.2 얼굴 인식 로그인 👤
 
@@ -144,7 +139,6 @@
 | 5️⃣ | 다수 얼굴 감지 가능하나 **단일 얼굴만** 감지하도록 수정 |
 | 6️⃣ | 바운딩 박스 좌표 **[0,1] 정규화** + 랜드마크 식별 → 임베딩 벡터 |
 
-
 **등록·로그인 절차**
 
 | 구분 | 설명 |
@@ -153,7 +147,6 @@
 | 🔓 **로그인** | 동일 전처리·감지 → DB 특징과 **유사도 비교** |
 
 유사도는 **유클리드 거리** 기반으로 비교하며, 데이터셋 분석으로 **평균·표준편차**를 고려한 임계값을 적용한다.
-
 
 | Landmark | Registered Face (X,Y) | Detected A (X,Y) | Detected B (X,Y) |
 |:---:|:---:|:---:|:---:|
@@ -169,14 +162,12 @@
 
 **MediaPipe Pose Detection**으로 실시간 자세를 측정하고, 관절 랜드마크 좌표로 **관절 각도**를 분석한다. 특정 부위 각도가 기준과 일치하는지 판단해 **자세 교정**을 지원한다.
 
-
 | 방법 | 특징 | 본 연구 선택 |
 |:---|:---|:---:|
 | 📏 **룰베이스** | 기준 각도와 실제 각도 비교 → 실시간 오류 감지 | ✅ 채택 |
 | 🧠 **BPE(임베딩)** | 시계열·유사도 중심, 완료 후 점수 제공 성향 | ❌ 실시간 교정 목적에 부적합 판단 |
 
 또한 **자세 교정**과 **실제 운동**으로 **모드를 분리**하여 개발하였다.
-
 
 | 상태 | 색 | 의미 |
 |:---:|:---:|:---|
@@ -218,20 +209,25 @@
 |:---|:---|:---|
 | 머리 | ear–shoulder–hip | 180° (±50°) | 하 |
 | 척추·다리 | ear–hip–knee 등 | 150° (±30°) | 상 |
-| 팔·손 | elbow–thumb 등 | 180° (±20°) 등 | 상|
+| 팔·손 | elbow–thumb 등 | 180° (±20°) 등 | 상 |
 
 교정 메시지는 “조금 더 굽혀주세요 / 덜 굽혀주세요”처럼 **방향성**을 주어 음성·영상으로 실시간 교정을 돕는다.
-<img width="563" height="283" alt="image" src="https://github.com/user-attachments/assets/8c4e895a-2f57-420e-9693-625e14f21f34" />
 
+<div align="center">
+<img width="563" height="283" alt="image" src="https://github.com/user-attachments/assets/8c4e895a-2f57-420e-9693-625e14f21f34" />
+</div>
 
 **난이도**는 사용자 선택에 따라 **쉬움·보통·어려움**으로 설정할 수 있으며, 운동 횟수(스쿼트·런지)와 유지 시간(플랭크·밸런스)을 달리 설정할 수 있다.
 
 **반복 운동(스쿼트·런지) 카운팅**  
 - 예: 스쿼트에서 다리 각도 **160° 이상**을 서 있는 상태, **100° 이하**를 앉은 상태로 인식  
 - **160° 이상 → 100° 이하 → 160° 이상**으로 복귀하면 **1회** 증가
-![Screenshot_20240613-170543](https://github.com/user-attachments/assets/b7933ffc-d69d-4cba-9b10-ddaa0270bcfa)
 
-**유지 운동(플랭크·밸런스) **
+<div align="center">
+<img alt="Screenshot_20240613-170543" src="https://github.com/user-attachments/assets/b7933ffc-d69d-4cba-9b10-ddaa0270bcfa" />
+</div>
+
+**유지 운동(플랭크·밸런스) **  
 설정 시간 내 기준 자세와 일치한 시간 비율로 정확도를 평가한다.  
 머리·몸통·팔·다리 중 하나라도 벗어나면 시간에 비례해 정확도가 차감된다.
 
@@ -269,8 +265,11 @@ HC-06 + MPU-6050 기반 **에어마우스**로 구현한다.
 | 🏋️ 미션 | 도중 스쿼트·런지·밸런스 등 운동 과제 |
 | ✅ 판정 | **3.3 운동 자세 교정**과 동일 원리 |
 | 🏆 랭킹 | 최종 점수로 랭킹 확인 |
+
+<div align="center">
 <img width="422" height="205" alt="임영웅게임" src="https://github.com/user-attachments/assets/4b046689-cbf6-4c99-a946-4731f9e40309" />
-![Screenshot_20240613-170900](https://github.com/user-attachments/assets/bbf22e75-ac4f-44df-a0fe-c7b94f8f4ac8)
+<img alt="Screenshot_20240613-170900" src="https://github.com/user-attachments/assets/bbf22e75-ac4f-44df-a0fe-c7b94f8f4ac8" />
+</div>
 
 ---
 
@@ -282,7 +281,10 @@ HC-06 + MPU-6050 기반 **에어마우스**로 구현한다.
 | 😐 얼굴 위치 | **3.2** MLKit로 얼굴 위치 감지 → 캐릭터 좌우 조정 |
 | ⭐ 점수 | 스쿼트 수행 시 추가 점수, 우주선 적중 시 점수 등(논문 본문) |
 | 🏆 랭킹 | 최종 점수로 랭킹 확인 |
+
+<div align="center">
 <img width="1046" height="251" alt="화면 캡처 2026-04-01 191423" src="https://github.com/user-attachments/assets/b80f5dfc-509f-4f60-8276-73e75ffe07b4" />
+</div>
 
 ---
 
@@ -293,8 +295,8 @@ HC-06 + MPU-6050 기반 **에어마우스**로 구현한다.
 | 📄 앱 소개 정리| [Google Drive](https://drive.google.com/file/d/1n9ZdxNrJpgKZWSckWvXcWaxxq_yf7haF/view?usp=sharing) |
 
 ---
-<div align="center">
 
+<div align="center">
 
 Made by Team SHANNTI 💪
 
