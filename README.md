@@ -204,7 +204,7 @@
 교정 메시지는 “조금 더 굽혀주세요 / 덜 굽혀주세요”처럼 **방향성**을 주어 음성·영상으로 실시간 교정을 돕는다.
 
 <div align="center">
-<img width="563" height="283" alt="image" src="https://github.com/user-attachments/assets/8c4e895a-2f57-420e-9693-625e14f21f34" />
+<img width="422" height="205" alt="image" src="https://github.com/user-attachments/assets/8c4e895a-2f57-420e-9693-625e14f21f34" />
 </div>
 
 **난이도**는 사용자 선택에 따라 **쉬움·보통·어려움**으로 설정할 수 있으며, 운동 횟수(스쿼트·런지)와 유지 시간(플랭크·밸런스)을 달리 설정할 수 있다.
@@ -214,7 +214,7 @@
 - **160° 이상 → 100° 이하 → 160° 이상**으로 복귀하면 **1회** 증가
 
 <div align="center">
-<img alt="Screenshot_20240613-170543" src="https://github.com/user-attachments/assets/b7933ffc-d69d-4cba-9b10-ddaa0270bcfa" />
+<img width="422" height="205" alt="Screenshot_20240613-170543" src="https://github.com/user-attachments/assets/b7933ffc-d69d-4cba-9b10-ddaa0270bcfa" />
 </div>
 
 **유지 운동(플랭크·밸런스) **  
@@ -259,7 +259,7 @@ HC-06 + MPU-6050 기반 **에어마우스**로 구현한다.
 
 <div align="center">
 <img width="422" height="205" alt="임영웅게임" src="https://github.com/user-attachments/assets/4b046689-cbf6-4c99-a946-4731f9e40309" />
-<img alt="Screenshot_20240613-170900" src="https://github.com/user-attachments/assets/bbf22e75-ac4f-44df-a0fe-c7b94f8f4ac8" />
+<img width="422" height="205" alt="Screenshot_20240613-170900" src="https://github.com/user-attachments/assets/bbf22e75-ac4f-44df-a0fe-c7b94f8f4ac8" />
 </div>
 
 ---
