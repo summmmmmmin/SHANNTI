@@ -1,7 +1,6 @@
 <div align="center">
 <img width="262" height="74" alt="shanntilogo" src="https://github.com/user-attachments/assets/d4a06c2d-c7f8-4012-9cab-6f8c524ff3c4" />
 
-# 🧘‍♂️ SHANNTI  
 
 
 
