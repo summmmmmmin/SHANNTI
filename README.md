@@ -85,11 +85,10 @@
 
 | 분류 | 기술 | 비고 |
 |------|------|------|
-| **언어** | Java · Kotlin · C++ | JNI 네이티브 연동 |
+| **언어** | Java | JNI 네이티브 연동 |
 | **카메라** | CameraX API | 실시간 프레임 캡처 |
 | **포즈 추적** | Google MediaPipe | GPU 가속 파이프라인 |
 | **얼굴 감지** | Google ML Kit | 얼굴 인식 로그인 / 미니게임 조작 입력 |
-| **이미지 처리** | OpenCV (Native JNI) | C++ 네이티브 연동 |
 | **인증** | Firebase Authentication | 이메일 / 비밀번호 |
 | **클라우드 DB** | Firebase Realtime Database | 사용자 정보 / 점수 · 랭킹 실시간 동기화 |
 | **로컬 DB** | Room Database | 운동 세션 기록 |
