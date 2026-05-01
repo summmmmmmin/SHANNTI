@@ -53,7 +53,7 @@
 
 - 잘못된 자세 감지 즉시 한국어 음성 교정 안내
 - 부위별 맞춤 피드백 ("무릎을 더 굽혀주세요", "허리를 펴주세요")
-- 판정 주기 **500ms** — 체감 지연 없는 실시간 반응
+- 체감 지연 없는 실시간 반응
 - 1회 분석 세션 5,000ms 고정 윈도우
 
 </td>
@@ -85,7 +85,7 @@
 
 | 분류 | 기술 | 비고 |
 |------|------|------|
-| **언어** | Java | JNI 네이티브 연동 |
+| **언어** | Java | |
 | **카메라** | CameraX API | 실시간 프레임 캡처 |
 | **포즈 추적** | Google MediaPipe | GPU 가속 파이프라인 |
 | **얼굴 감지** | Google ML Kit | 얼굴 인식 로그인 / 미니게임 조작 입력 |
@@ -277,6 +277,17 @@ HC-06 + MPU-6050 기반 **에어마우스**로 구현한다.
 </div>
 
 ---
+
+## 트러블슈팅
+
+| # | 발견 | 원인 | 해결 | 결과 |
+|---|------|------|------|------|
+| 1 | **전면 카메라에서 좌우 반전 오판정** | MediaPipe 랜드마크는 이미지 기준 좌표계 — 전면 카메라 특성상 X축이 좌우 반전되어 왼쪽·오른쪽 관절이 뒤바뀜 | 모든 운동 Activity에서 `processor.getVideoSurfaceOutput().setFlipY(true)` + `converter.setFlipY(true)` 설정 후 랜드마크 좌표 변환 적용 (`bodyMarkPoint[i].x ← landmark.getY() × 1000f`, `.y ← landmark.getX() × 1000f`) | 전면 카메라에서 좌우 방향 정상 매핑 |
+| 2 | **랜드마크 화면 이탈 시 오판정** | 발목·손목이 화면 밖으로 나가면 좌표가 정상 범위를 벗어나 각도 계산값이 비정상적으로 출력됨 | 33개 랜드마크마다 `boolean[] OutOfRangeSave` 배열로 범위 추적(X·Y 각각 -100~1100 기준). 범위 이탈 시 해당 부위 ⚫(미감지)로 처리하고 각도 판정을 건너뜀 | 화면 이탈 시 오판정 0건, 미감지(⚫)로 안전 처리 |
+| 3 | **Room DB 메인 스레드 경고 (ANR 위험)** | `Room.databaseBuilder().allowMainThreadQueries()` 설정으로 DB 쿼리가 메인 스레드에서 직접 실행됨 | `MeasureRoomDatabase`에 `Executors.newFixedThreadPool(4)` 스레드 풀 선언. DB 쓰기 작업을 `databaseWriteExecutor.execute()`로 비동기 처리하고 결과는 LiveData로 UI 업데이트 | ANR 위험 제거 |
+
+---
+
 
 ## 자료 링크
 
